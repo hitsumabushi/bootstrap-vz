@@ -1,0 +1,37 @@
+---
+$schema: http://json-schema.org/draft-04/schema#
+title: vSphere manifest
+type: object
+properties:
+  provider:
+    type: object
+    properties:
+      vmware_tools:
+        type: object
+        properties:
+          tools_type:
+            type: string
+            enum:
+            - vmware-tools
+            - open-vm-tools
+          path: {type: string}
+      vmdk_convert: {type: string}
+  system:
+    type: object
+    properties:
+      bootloader:
+        type: string
+        enum:
+        - grub
+        - extlinux
+  volume:
+    type: object
+    properties:
+      partitions:
+        type: object
+        properties:
+          type:
+            type: string
+            enum:
+            - msdos
+            - gpt
